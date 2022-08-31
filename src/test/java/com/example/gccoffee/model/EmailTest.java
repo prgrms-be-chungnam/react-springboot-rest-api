@@ -16,7 +16,7 @@ class EmailTest {
     @Test
     public void testValidEmail(){
        var email = new Email("hello@gmail.com");
-       assertTrue(email.getAddress().equals("hello@gmail.com"));
+       assertEquals("hello@gmail.com", email.getAddress());
     }
 
 }

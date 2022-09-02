@@ -54,12 +54,61 @@ class ProductJdbcRepositoryTest {
 
     @Test
     @Order(1)
-    @DisplayName("상품을 추가할 수 있다.")
+    @DisplayName("add product.")
     void testInsert(){
         repository.insert(newProduct);
         var all = repository.findAll();
 
         assertThat(all.isEmpty(), is(false));
     }
+
+    @Test
+    @Order(2)
+    @DisplayName("find by name.")
+    void testFindByName(){
+        var product = repository.findByName(newProduct.getProductName());
+        assertThat(product.isEmpty(), is(false));
+    }
+
+    @Test
+    @Order(3)
+    @DisplayName("find by id.")
+    void testFindById(){
+        var product = repository.findById(newProduct.getProductId());
+
+        assertThat(product.isEmpty(), is(false));
+    }
+
+    @Test
+    @Order(4)
+    @DisplayName("find by category.")
+    void testFindByCategory(){
+        var product = repository.findByCategory(Category.COFFEE_BEAN_PACKAGE);
+        assertThat(product.isEmpty(), is(false));
+    }
+
+    @Test
+    @Order(5)
+    @DisplayName("updated")
+    void testUpdate(){
+        newProduct.setProductName("updated-product");
+        repository.update(newProduct);
+
+        var product = repository.findById(newProduct.getProductId());
+        assertThat(product.isEmpty(), is(false));
+        assertThat(product.get(), samePropertyValuesAs(newProduct));
+    }
+
+    @Test
+    @Order(6)
+    @DisplayName("delete all products")
+    void testDeleteAll(){
+        repository.deleteAll();
+        var all = repository.findAll();
+        assertThat(all.isEmpty(), is(true));
+    }
+
+
+
 
 }

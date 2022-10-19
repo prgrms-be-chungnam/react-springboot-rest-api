@@ -27,5 +27,15 @@ public class ProductController {
         return "new-product";
     }
 
+    @PostMapping("/products")
+    public String newProduct(CreateProductRequest createProductRequest) {
+        productService.createProduct(
+                createProductRequest.productName(),
+                createProductRequest.category(),
+                createProductRequest.price(),
+                createProductRequest.description());
+        return "redirect:/products";
+    }
+
 
 }

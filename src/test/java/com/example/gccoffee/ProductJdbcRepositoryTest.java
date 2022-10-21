@@ -27,6 +27,7 @@ import static org.hamcrest.Matchers.samePropertyValuesAs;
 class ProductJdbcRepositoryTest {
 
   static EmbeddedMysql embeddedMysql;
+  //맥 m1 사용으로 인한 embedded mysql 사용 불가
 
   @BeforeAll
   static void setup() {

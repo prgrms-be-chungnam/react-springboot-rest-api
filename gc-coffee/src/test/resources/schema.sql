@@ -1,3 +1,4 @@
+use test-order-mgmt;
 create table products(
     product_id BINARY(16) PRIMARY KEY,
     product_name VARCHAR(20) NOT NULL,

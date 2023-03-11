@@ -11,10 +11,7 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.time.LocalDateTime;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.UUID;
+import java.util.*;
 
 import static com.example.server.Utils.toLocalDateTime;
 import static com.example.server.Utils.toUUID;
@@ -43,8 +40,10 @@ public class OrderJdbcRepository implements OrderRepository {
     }
 
     @Override
-    public List<Order> findByEmail(Email email) {
-        return jdbcTemplate.query("SELECT * FROM orders WHERE email = :email",orderRowMapper);
+    public List<Order> findByEmail(String email) {
+        return jdbcTemplate.query("SELECT * FROM orders WHERE email = :email",
+                Collections.singletonMap("email",email.toString()),
+                orderRowMapper);
 
     }
 
@@ -55,21 +54,21 @@ public class OrderJdbcRepository implements OrderRepository {
 
     private static final RowMapper<Order> orderRowMapper = (resultSet, i) -> {
         var orderId = toUUID(resultSet.getBytes("order_id"));
-        var email = resultSet.getArray("email");
+        var email = resultSet.getString("email");
         var address = resultSet.getString("address");
         var postcode = resultSet.getString("postcode");
         var orderStatus = OrderStatus.valueOf(resultSet.getString("order_status"));
         var createdAt = toLocalDateTime(resultSet.getTimestamp("created_at"));
         var updatedAt = toLocalDateTime(resultSet.getTimestamp("updated_at"));
 
-        return new Order(orderId, (Email) email, address, postcode, orderStatus, createdAt, updatedAt);
+        return new Order(orderId, email, address, postcode, orderStatus, createdAt, updatedAt);
     };
 
 
     private Map<String, Object> toOrderParamMap(Order order) {
         var paramMap = new HashMap<String, Object>();
         paramMap.put("orderId",order.getOrderId().toString().getBytes());
-        paramMap.put("email", order.getEmail().getAddress());
+        paramMap.put("email", order.getEmail());
         paramMap.put("address",order.getAddress());
         paramMap.put("postcode",order.getPostcode());
         paramMap.put("orderStatus",order.getOrderStatus().toString());

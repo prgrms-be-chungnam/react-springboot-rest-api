@@ -8,7 +8,7 @@ import java.util.List;
 public interface OrderRepository {
     Order insert(Order order);
 
-    List<Order> findByEmail(Email email);
+    List<Order> findByEmail(String email);
 
     List<Order> findAll();
 }

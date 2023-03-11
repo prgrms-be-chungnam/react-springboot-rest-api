@@ -8,7 +8,7 @@ import java.util.UUID;
 
 public class Order {
     private final UUID orderId;
-    private final Email email;
+    private String email;
     private String address;
     private String postcode;
     private List<OrderItem> orderItems;
@@ -16,7 +16,7 @@ public class Order {
     private final LocalDateTime createdAt;
     private LocalDateTime updatedAt;
 
-    public Order(UUID orderId, Email email, String address, String postcode, List<OrderItem> orderItems, OrderStatus orderStatus, LocalDateTime createdAt, LocalDateTime updatedAt) {
+    public Order(UUID orderId, String email, String address, String postcode, List<OrderItem> orderItems, OrderStatus orderStatus, LocalDateTime createdAt, LocalDateTime updatedAt) {
         this.orderId = orderId;
         this.email = email;
         this.address = address;
@@ -31,7 +31,7 @@ public class Order {
         return orderId;
     }
 
-    public Email getEmail() {
+    public String getEmail() {
         return email;
     }
 
@@ -74,7 +74,7 @@ public class Order {
         this.updatedAt = LocalDateTime.now();
     }
     @Builder
-    public Order(UUID orderId, Email email, String address, String postcode, OrderStatus orderStatus, LocalDateTime createdAt, LocalDateTime updatedAt) {
+    public Order(UUID orderId, String email, String address, String postcode, OrderStatus orderStatus, LocalDateTime createdAt, LocalDateTime updatedAt) {
         this.orderId = orderId;
         this.email = email;
         this.address = address;

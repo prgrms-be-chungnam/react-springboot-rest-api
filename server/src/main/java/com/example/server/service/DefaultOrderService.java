@@ -21,7 +21,7 @@ public class DefaultOrderService implements OrderService {
     }
 
     @Override
-    public Order createOrder(Email email, String address, String postcode, List<OrderItem> orderItems) {
+    public Order createOrder(String email, String address, String postcode, List<OrderItem> orderItems) {
         Order order = new Order(
                 UUID.randomUUID(),
                 email,
@@ -35,7 +35,7 @@ public class DefaultOrderService implements OrderService {
     }
 
     @Override
-    public List<Order> getOrdersByEmail(Email email) {
+    public List<Order> getOrdersByEmail(String email) {
         return orderRepository.findByEmail(email);
     }
 

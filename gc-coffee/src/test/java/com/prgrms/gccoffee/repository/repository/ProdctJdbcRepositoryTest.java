@@ -2,7 +2,7 @@ package com.prgrms.gccoffee.repository.repository;
 
 import com.prgrms.gccoffee.model.Category;
 import com.prgrms.gccoffee.model.Product;
-import com.prgrms.gccoffee.repository.ProdctJdbcRepository;
+import com.prgrms.gccoffee.repository.ProductJdbcRepository;
 import com.wix.mysql.EmbeddedMysql;
 import com.wix.mysql.ScriptResolver;
 import com.wix.mysql.config.Charset;
@@ -49,7 +49,7 @@ class ProdctJdbcRepositoryTest {
 
 
     @Autowired
-    ProdctJdbcRepository repository;
+    ProductJdbcRepository repository;
 
     //static 으로 해줘야 매 test 마다 인스턴스가 새로 만들어지지 않음.
     //static 이 아니면 새로 인스턴스 생성됨, UUID 다름.

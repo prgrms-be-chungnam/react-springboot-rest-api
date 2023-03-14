@@ -16,18 +16,18 @@ function App() {
     const [items, setItems] = useState([])
 
     const handleAddClicked = id =>{
-        const product = products.find(v => v.productId == id);
-        const found = items.find(v => v.productId == id);
+        const product = products.find(v => v.productId === id);
+        const found = items.find(v => v.productId === id);
 
         //map: 루프를 돌며 새로운 배열이 만들어짐. id와 같은 요소: 새로운 객체 반환
         // 장바구니 안에서 같은 id를 찾았을 경우: ...v: v 객체 복사, count 라는 속성 추가, +1 ::::해당 product 의 count +1 증가
         // 장바구니 안에서 같은 id를 못 찾았을 경우: v 객체 그대로 리턴, items(장바구니)에 product 새로 담음. :::: 장바구니에 new product 담김.
         const updatedItems =
-            found ? items.map(v => (v.productId == id) ? {...v, count: v.count + 1} : v) : [...items, {...product, count: 1}]
+            found ? items.map(v => (v.productId === id) ? {...v, count: v.count + 1} : v) : [...items, {...product, count: 1}]
         setItems(updatedItems);
 
         //products: 위의 const에서 정의한 `상태`로부터 정보를 가져옴.
-      console.log(products.find(v => v.productId == id), "added!")
+      console.log(products.find(v => v.productId === id), "added!")
     };
 
 

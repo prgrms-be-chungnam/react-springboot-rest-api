@@ -14,11 +14,11 @@ import static com.prgrms.gccoffee.JdbcUtils.toUUID;
 
 
 @Repository
-public class ProdctJdbcRepository implements ProductRepository{
+public class ProductJdbcRepository implements ProductRepository{
 
     private final NamedParameterJdbcTemplate jdbcTemplate;
 
-    public ProdctJdbcRepository(NamedParameterJdbcTemplate jdbcTemplate) {
+    public ProductJdbcRepository(NamedParameterJdbcTemplate jdbcTemplate) {
         this.jdbcTemplate = jdbcTemplate;
     }
 

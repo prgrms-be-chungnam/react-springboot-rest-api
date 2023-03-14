@@ -1,0 +1,20 @@
+public class ProductController{
+    private final ProductService productService;
+
+    public ProductController(ProductService productService){ this.productService = productService;}
+
+    @GetMapping("/products")
+    public String productsPage(Model model){
+        var products = productService.getAllProducts();
+        model.addAttribute("products", products);
+        return "product-list";
+    }
+
+    @PostMapping("/Products")
+    public String newProduct(CreateProductRequest createProductRequest){
+        productService.createProduct(
+            createProductRequest.productName(),
+            createProductRequest.productPrice());
+        return "redirect:/products";
+    }
+}

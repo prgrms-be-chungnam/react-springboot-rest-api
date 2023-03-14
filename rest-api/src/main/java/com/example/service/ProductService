@@ -1,0 +1,4 @@
+public interface ProductService{
+    List<Product> getAllProducts();
+    Product createProduct(String name, int price);
+    }

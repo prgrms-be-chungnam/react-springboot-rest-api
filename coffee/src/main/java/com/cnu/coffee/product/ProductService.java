@@ -18,6 +18,7 @@ public class ProductService {
         Product product = new Product(UUID.randomUUID(),
                 productDTO.getName(),
                 productDTO.getCategory(),
+                productDTO.getDescription().isEmpty() ? null : productDTO.getDescription(),
                 productDTO.getPrice());
         return productRepository.insert(product);
     }

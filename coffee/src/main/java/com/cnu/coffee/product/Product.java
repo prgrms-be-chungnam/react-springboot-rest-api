@@ -19,15 +19,16 @@ public class Product {
     private UUID productId;
     private String productName;
     private Category category;
-//    private String description;
+    private String description; //default null
     private int price;
     private LocalDateTime createdAt;
     private LocalDateTime updatedAt;
 
-    public Product(UUID productId, String productName, Category category, int price) {
+    public Product(UUID productId, String productName, Category category, String description, int price) {
         this.productId = productId;
         this.productName = productName;
         this.category = category;
+        this.description = description;
         this.price = price;
         this.createdAt = LocalDateTime.now().truncatedTo(ChronoUnit.MILLIS);
         this.updatedAt = LocalDateTime.now().truncatedTo(ChronoUnit.MILLIS);
@@ -47,5 +48,9 @@ public class Product {
 
     public void setUpdatedAt(LocalDateTime updatedAt) {
         this.updatedAt = updatedAt;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 }

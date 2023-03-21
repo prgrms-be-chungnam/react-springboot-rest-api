@@ -6,21 +6,21 @@ import org.springframework.stereotype.Service;
 import java.time.LocalDateTime;
 import java.time.temporal.ChronoUnit;
 import java.util.List;
+import java.util.NoSuchElementException;
 import java.util.UUID;
 
 @Service
 public class ProductService {
 
     @Autowired
-    ProductRepository productRepository;
+    ProductJpaRepository productRepository;
 
     public Product insertProduct(ProductDTO productDTO) {
         Product product = new Product(UUID.randomUUID(),
                 productDTO.getName(),
                 productDTO.getCategory(),
-                productDTO.getDescription().isEmpty() ? null : productDTO.getDescription(),
                 productDTO.getPrice());
-        return productRepository.insert(product);
+        return productRepository.save(product);
     }
 
 
@@ -29,12 +29,13 @@ public class ProductService {
     }
 
     public Product update(UUID id, ProductDTO productDTO) {
-        Product product = productRepository.findById(id);
+        Product product = productRepository.findById(id).orElseThrow(
+                () -> new NoSuchElementException(ProductService.class.getPackage().getName()));
         product.setProductName(productDTO.getName());
         product.setCategory(productDTO.getCategory());
         product.setPrice(productDTO.getPrice());
-        product.setUpdatedAt(LocalDateTime.now().truncatedTo(ChronoUnit.MILLIS));
-        return productRepository.update(product);
+        product.setLastUpdatedDate(LocalDateTime.now().truncatedTo(ChronoUnit.MILLIS));
+        return productRepository.save(product);
     }
 
     public void delete(UUID id) {

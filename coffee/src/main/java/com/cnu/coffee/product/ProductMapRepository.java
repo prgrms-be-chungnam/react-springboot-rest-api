@@ -3,7 +3,6 @@ package com.cnu.coffee.product;
 import org.springframework.stereotype.Repository;
 
 import java.util.*;
-import java.util.stream.Collectors;
 
 @Repository
 public class ProductMapRepository implements ProductRepository {
@@ -12,8 +11,8 @@ public class ProductMapRepository implements ProductRepository {
 
     @Override
     public Product insert(Product product) {
-        db.put(product.getProductId(), product);
-        return db.get(product.getProductId());
+        db.put(product.getId(), product);
+        return db.get(product.getId());
     }
 
     @Override
@@ -29,7 +28,7 @@ public class ProductMapRepository implements ProductRepository {
 
     @Override
     public Product update(Product product) {
-        return db.replace(product.getProductId(), product);
+        return db.replace(product.getId(), product);
     }
 
     @Override

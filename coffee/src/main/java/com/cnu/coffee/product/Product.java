@@ -1,56 +1,47 @@
 package com.cnu.coffee.product;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Getter;
+import lombok.*;
+import org.hibernate.annotations.GenericGenerator;
 
+import javax.persistence.*;
 import java.time.LocalDateTime;
 import java.time.temporal.ChronoUnit;
 import java.util.UUID;
 
-
+@Entity(name = "products")
 @Getter
+@Setter
+@NoArgsConstructor
 @AllArgsConstructor
 public class Product {
 
     /*
-    * Input: String name, int price
-    * */
-    private UUID productId;
+     * Input: String name, int price
+     * */
+    @Id
+    @GeneratedValue(generator = "uuid2")
+    @GenericGenerator(name = "uuid2", strategy = "uuid2")
+    @Column(name = "id", nullable = false, unique = true, columnDefinition = "BINARY(16)")
+    private UUID id;
+    @Column(name = "product_name", nullable = false, length = 30)
     private String productName;
+    @Enumerated(EnumType.STRING)
     private Category category;
-    private String description; //default null
+    @Column(name = "description", length = 200)
+    private String description;
+    @Column(name = "price", nullable = false)
     private int price;
-    private LocalDateTime createdAt;
-    private LocalDateTime updatedAt;
+    @Column(name = "registered_date", nullable = false, columnDefinition = "TIMESTAMP")
+    private LocalDateTime registeredDate;
+    @Column(name = "last_updated_date", nullable = false, columnDefinition = "TIMESTAMP")
+    private LocalDateTime lastUpdatedDate;
 
-    public Product(UUID productId, String productName, Category category, String description, int price) {
-        this.productId = productId;
+    public Product(UUID id, String productName, Category category, int price) {
+        this.id = id;
         this.productName = productName;
         this.category = category;
-        this.description = description;
         this.price = price;
-        this.createdAt = LocalDateTime.now().truncatedTo(ChronoUnit.MILLIS);
-        this.updatedAt = LocalDateTime.now().truncatedTo(ChronoUnit.MILLIS);
-    }
-
-    public void setProductName(String productName) {
-        this.productName = productName;
-    }
-
-    public void setPrice(int price) {
-        this.price = price;
-    }
-
-    public void setCategory(Category category) {
-        this.category = category;
-    }
-
-    public void setUpdatedAt(LocalDateTime updatedAt) {
-        this.updatedAt = updatedAt;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
+        this.registeredDate = LocalDateTime.now().truncatedTo(ChronoUnit.MILLIS);
+        this.lastUpdatedDate = LocalDateTime.now().truncatedTo(ChronoUnit.MILLIS);
     }
 }

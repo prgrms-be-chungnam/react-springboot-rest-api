@@ -14,9 +14,4 @@ public class ProductDTO {
     private Category category;
     private String description;
 
-    public ProductDTO(String name, int price, Category category) {
-        this.name = name;
-        this.price = price;
-        this.category = category;
-    }
 }

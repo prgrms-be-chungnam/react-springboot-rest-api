@@ -1,0 +1,23 @@
+spring:
+  config:
+    activate:
+      dev
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql:/localhost:3306/coffee_dev
+    username: root
+    password: zjvl1234@#
+  jpa:
+    hibernate:
+      ddl-auto: create
+    properties:
+      hibernate:
+        hbm2ddl:
+          auto: true
+        format_sql: true
+        show_sql: true
+
+logging:
+  level:
+    org.hibernate.type.descriptor.sql: debug
+    org.hibernate.SQL: debug

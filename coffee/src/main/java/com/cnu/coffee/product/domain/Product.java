@@ -8,16 +8,15 @@ import java.time.LocalDateTime;
 import java.time.temporal.ChronoUnit;
 import java.util.UUID;
 
+@ToString
+@Builder
 @Entity(name = "products")
 @Getter
-@Setter
 @NoArgsConstructor
 @AllArgsConstructor
 public class Product {
 
-    /*
-     * Input: String name, int price
-     * */
+
     @Id
     @GeneratedValue(generator = "uuid2")
     @GenericGenerator(name = "uuid2", strategy = "uuid2")
@@ -42,8 +41,7 @@ public class Product {
     @Column(name = "last_updated_date", nullable = false, columnDefinition = "TIMESTAMP")
     private LocalDateTime lastUpdatedDate;
 
-    public Product(UUID id, String productName, Category category, int price) {
-        this.id = id;
+    public Product(String productName, Category category, int price) {
         this.productName = productName;
         this.category = category;
         this.price = price;

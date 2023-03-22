@@ -8,6 +8,7 @@ import java.time.LocalDateTime;
 import java.time.temporal.ChronoUnit;
 import java.util.UUID;
 
+@ToString
 @Entity(name = "products")
 @Getter
 @Setter
@@ -42,8 +43,7 @@ public class Product {
     @Column(name = "last_updated_date", nullable = false, columnDefinition = "TIMESTAMP")
     private LocalDateTime lastUpdatedDate;
 
-    public Product(UUID id, String productName, Category category, int price) {
-        this.id = id;
+    public Product(String productName, Category category, int price) {
         this.productName = productName;
         this.category = category;
         this.price = price;

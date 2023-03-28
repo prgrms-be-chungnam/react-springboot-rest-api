@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="fbfd9ece-5dd2-4943-8642-815c82090f8c" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/../gc-coffee1/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../gc-coffee1/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../gc-coffee1/src/main/java/com/example/gccoffee1/controller/ProductController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../gc-coffee1/src/main/java/com/example/gccoffee1/controller/ProductController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../gc-coffee1/src/main/java/com/example/gccoffee1/controller/api/OrderRestController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../gc-coffee1/src/main/java/com/example/gccoffee1/controller/api/OrderRestController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../gc-coffee1/src/main/java/com/example/gccoffee1/controller/api/ProductRestController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../gc-coffee1/src/main/java/com/example/gccoffee1/controller/api/ProductRestController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../gc-coffee1/src/main/java/com/example/gccoffee1/model/Order.java" beforeDir="false" afterPath="$PROJECT_DIR$/../gc-coffee1/src/main/java/com/example/gccoffee1/model/Order.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../gc-coffee1/src/main/java/com/example/gccoffee1/model/Product.java" beforeDir="false" afterPath="$PROJECT_DIR$/../gc-coffee1/src/main/java/com/example/gccoffee1/model/Product.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../gc-coffee1/src/main/java/com/example/gccoffee1/repository/OrderJdbcRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/../gc-coffee1/src/main/java/com/example/gccoffee1/repository/OrderJdbcRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../gc-coffee1/src/main/java/com/example/gccoffee1/repository/OrderRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/../gc-coffee1/src/main/java/com/example/gccoffee1/repository/OrderRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../gc-coffee1/src/main/java/com/example/gccoffee1/repository/ProductJdbcRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/../gc-coffee1/src/main/java/com/example/gccoffee1/repository/ProductJdbcRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../gc-coffee1/src/main/java/com/example/gccoffee1/repository/ProductRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/../gc-coffee1/src/main/java/com/example/gccoffee1/repository/ProductRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../gc-coffee1/src/main/java/com/example/gccoffee1/service/DefaultOrderService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../gc-coffee1/src/main/java/com/example/gccoffee1/service/DefaultOrderService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../gc-coffee1/src/main/java/com/example/gccoffee1/service/DefaultProductService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../gc-coffee1/src/main/java/com/example/gccoffee1/service/DefaultProductService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../gc-coffee1/src/main/java/com/example/gccoffee1/service/OrderService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../gc-coffee1/src/main/java/com/example/gccoffee1/service/OrderService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../gc-coffee1/src/main/java/com/example/gccoffee1/service/ProductService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../gc-coffee1/src/main/java/com/example/gccoffee1/service/ProductService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../gc-coffee1/src/main/resources/application.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/../gc-coffee1/src/main/resources/application.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../gc-coffee1/src/main/resources/schema.sql" beforeDir="false" afterPath="$PROJECT_DIR$/../gc-coffee1/src/main/resources/schema.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../gc-coffee1/src/main/resources/templates/new-product.html" beforeDir="false" afterPath="$PROJECT_DIR$/../gc-coffee1/src/main/resources/templates/new-product.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../gc-coffee1/src/main/resources/templates/product-list.html" beforeDir="false" afterPath="$PROJECT_DIR$/../gc-coffee1/src/main/resources/templates/product-list.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JavaScript File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2Kx1sOfT2A5ny93b8eOllA7Fp6y" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "C:/Users/user/IdeaProjects/kdt-live-sessrion/kdt-react-order-ui",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_interpreter_path": "C:/Program Files/nodejs/node",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "project.propDebugger",
+    "vue.rearranger.settings.migration": "true"
+  },
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "mysql"
+    ]
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\user\IdeaProjects\kdt-live-sessrion\kdt-react-order-ui\src\components" />
+    </key>
+  </component>
+  <component name="RunManager" selected="npm.start">
+    <configuration name="build" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="build" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <configuration name="start" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="start" />
+      </scripts>
+      <node-interpreter value="$PROJECT_DIR$/../../../../../Program Files/nodejs/node" />
+      <package-manager value="npm" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="npm.start" />
+        <item itemvalue="npm.build" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="fbfd9ece-5dd2-4943-8642-815c82090f8c" name="Changes" comment="" />
+      <created>1674901626442</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1674901626442</updated>
+      <workItem from="1674901627783" duration="1508000" />
+      <workItem from="1675059853165" duration="3329000" />
+      <workItem from="1675063268534" duration="7658000" />
+      <workItem from="1675146600418" duration="3449000" />
+      <workItem from="1675220944712" duration="6462000" />
+      <workItem from="1675301230346" duration="1715000" />
+      <workItem from="1675422172202" duration="691000" />
+      <workItem from="1675486896705" duration="1204000" />
+      <workItem from="1675515299406" duration="149000" />
+      <workItem from="1675857061847" duration="1863000" />
+      <workItem from="1675905241393" duration="607000" />
+      <workItem from="1676377365413" duration="625000" />
+      <workItem from="1676434589511" duration="612000" />
+      <workItem from="1676784600807" duration="3720000" />
+      <workItem from="1676971095938" duration="442000" />
+      <workItem from="1676973724789" duration="398000" />
+      <workItem from="1676975892300" duration="8113000" />
+      <workItem from="1677304798116" duration="14105000" />
+      <workItem from="1677471048245" duration="1143000" />
+      <workItem from="1678164843371" duration="12711000" />
+      <workItem from="1678261046572" duration="13055000" />
+      <workItem from="1678421242968" duration="2528000" />
+      <workItem from="1678526945991" duration="728000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
+  </component>
+</project>

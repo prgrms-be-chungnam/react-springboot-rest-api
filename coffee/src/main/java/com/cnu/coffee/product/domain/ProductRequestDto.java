@@ -14,8 +14,7 @@ public class ProductRequestDto {
     private int price;
     private Category category;
 
-    @Builder.Default
-    private Optional<String> description = Optional.empty();
+    private Optional<String> description;
 
     public ProductRequestDto(String productName, Category category, int price){
         this.productName = productName;

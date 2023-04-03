@@ -22,8 +22,7 @@ public class ProductResponseDto {
 
     private Category category;
 
-    @Builder.Default
-    private Optional<String> description = Optional.empty();
+    private Optional<String> description;
 
     private int price;
 

@@ -5,29 +5,26 @@ import lombok.Getter;
 import lombok.Setter;
 
 import java.sql.Date;
-import java.util.List;
 
 @Entity
-@Table(name = "order")
+@Table(name = "product")
 @Getter
 @Setter
-public class Order {
+public class Product {
+
     @Id
     @GeneratedValue
     @Column(name = "id")
-    private long id;
+    private Long id;
 
-    @Column(name = "email")
-    private String email;
+    @Column(name = "name")
+    private String name;
 
-    @Column(name = "address")
-    private String address;
+    @Column(name = "price")
+    private int price;
 
-    @Column(name = "postcode")
-    private String postcode;
-
-    @OneToMany(mappedBy = "order")
-    private List<OrderItem> orderItems;
+    @Column(name = "description")
+    private String description;
 
     @Column(name = "created_date")
     private Date createdDate;

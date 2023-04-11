@@ -1,6 +1,8 @@
 package com.cnu.coffee.product.domain;
 
+import com.cnu.coffee.order.Order;
 import lombok.*;
+import net.bytebuddy.utility.nullability.MaybeNull;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
@@ -41,6 +43,10 @@ public class Product {
     @Column(name = "last_updated_date", nullable = false, columnDefinition = "TIMESTAMP")
     private LocalDateTime lastUpdatedDate;
 
+    @ManyToOne
+    @JoinColumn(name = "order_id", referencedColumnName = "id")
+    private Order order;
+
     public Product(String productName, Category category, int price) {
         this.productName = productName;
         this.category = category;
@@ -48,4 +54,6 @@ public class Product {
         this.registeredDate = LocalDateTime.now().truncatedTo(ChronoUnit.MILLIS);
         this.lastUpdatedDate = LocalDateTime.now().truncatedTo(ChronoUnit.MILLIS);
     }
+
+
 }

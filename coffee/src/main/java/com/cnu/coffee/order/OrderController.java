@@ -1,6 +1,5 @@
 package com.cnu.coffee.order;
 
-import com.cnu.coffee.product.domain.Product;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import org.springframework.data.domain.Page;
@@ -17,8 +16,8 @@ public class OrderController {
     private OrderService orderService;
 
     @PostMapping("")
-    public OrderDto addOrder(@RequestBody List<Product> products){
-        return orderService.save(products);
+    public OrderDto addOrder(@RequestBody List<Long> productIds){
+        return orderService.create(productIds);
     }
 
     @GetMapping("/{id}")
@@ -26,14 +25,24 @@ public class OrderController {
         return orderService.findById(id);
     }
 
+    @GetMapping("/all")
+    public List<OrderDto> findAllOrder(){
+        return orderService.findAll();
+    }
+
     @GetMapping("/page")
-    public Page<OrderDto> findAllOrder(Pageable pageable){
-        return orderService.findAll(pageable);
+    public Page<OrderDto> findOrderPage(Pageable pageable){
+        return orderService.findOrderPage(pageable);
     }
 
     @PutMapping("")
-    public OrderDto modifyOrder(@RequestBody OrderDto orderDto){
-        return orderService.update(orderDto);
+    public OrderDto modifyOrder(@RequestBody OrderUpdateDto orderUpdateDto){
+        return orderService.update(orderUpdateDto);
+    }
+
+    @PutMapping("/status")
+    public OrderDto modifyStatus(@RequestBody OrderIdStautsDto orderIdStautsDto){
+        return orderService.updateStatus(orderIdStautsDto);
     }
 
     @DeleteMapping("/{id}")

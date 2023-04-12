@@ -1,15 +1,13 @@
 package com.cnu.coffee.order;
 
 import com.cnu.coffee.product.domain.Product;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
 import java.util.List;
 
+@ToString
 @Builder
 @Getter
 @Entity
@@ -19,22 +17,29 @@ import java.util.List;
 public class Order {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id", unique = true, nullable = false)
     private Long id;
 
+    @ManyToMany
+    @JoinTable(
+            name = "order_products",
+            joinColumns = @JoinColumn(name = "order_id", referencedColumnName = "id"),
+            inverseJoinColumns = @JoinColumn(name = "product_id", referencedColumnName = "id")
+    )
+    private List<Product> products;
+
     @Column(name = "total_price")
     private int totalPrice;
+
+    @Enumerated(EnumType.ORDINAL)
+    private OrderStatus orderStatus;
 
     @Column(name = "order_time", nullable = false, columnDefinition = "TIMESTAMP")
     private LocalDateTime orderTime;
 
     @Column(name = "updated_time", columnDefinition = "TIMESTAMP")
     private LocalDateTime updatedTime;
-
-    @OneToMany(mappedBy = "order")
-    @Column(name = "products", nullable = false)
-    private List<Product> products;
 
     public void addProduct(Product product){
         this.products.add(product);
@@ -47,9 +52,4 @@ public class Order {
         }
         return total;
     }
-
-
-
-
-
 }

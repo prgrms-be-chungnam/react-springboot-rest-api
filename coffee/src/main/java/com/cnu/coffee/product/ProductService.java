@@ -62,7 +62,7 @@ public class ProductService {
         return dtoList;
     }
 
-    public ProductResponseDto findById(UUID id) throws ProductNotFoundException {
+    public ProductResponseDto findById(Long id) throws ProductNotFoundException {
         Product product = productRepository.findById(id).orElseThrow(
                 () -> new ProductNotFoundException("No such product id " + id)
         );
@@ -70,7 +70,7 @@ public class ProductService {
     }
 
 
-    public ProductResponseDto updateProduct(UUID id, ProductRequestDto productRequestDTO) throws ProductNotFoundException {
+    public ProductResponseDto updateProduct(Long id, ProductRequestDto productRequestDTO) throws ProductNotFoundException {
         Product foundProduct = productRepository.findById(id).orElseThrow(
                 () -> new ProductNotFoundException("No such product id " + id)
         );
@@ -90,13 +90,11 @@ public class ProductService {
         return this.convertEntityToDto(savedProduct);
     }
 
-    public void deleteProduct(UUID id) throws ProductNotFoundException {
+    public void deleteProduct(Long id) throws ProductNotFoundException {
         productRepository.deleteById(id);
     }
 
     public void deleteAllProducts() {
         productRepository.deleteAll();
     }
-
-
 }

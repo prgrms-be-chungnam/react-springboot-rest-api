@@ -4,9 +4,12 @@ spring:
     url: jdbc:mysql://localhost:3306/coffeedb
     username: root
     password: zjvl1234@#
+  h2:
+    console:
+      enabled: true
   jpa:
     hibernate:
-      ddl-auto: create
+      ddl-auto: create-drop
     generate-ddl: true
     show-sql: true
     open-in-view: true

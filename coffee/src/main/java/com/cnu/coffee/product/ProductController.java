@@ -27,18 +27,18 @@ public class ProductController {
     }
 
     @GetMapping("/{id}")
-    public ProductResponseDto getProduct(@PathVariable("id") UUID id) throws ProductNotFoundException {
+    public ProductResponseDto getProduct(@PathVariable("id") Long id) throws ProductNotFoundException {
         return productService.findById(id);
     }
 
     @PutMapping("/{id}")
-    public ProductResponseDto update(@PathVariable("id") UUID id, @RequestBody ProductRequestDto productRequestDTO)
+    public ProductResponseDto update(@PathVariable("id") Long id, @RequestBody ProductRequestDto productRequestDTO)
             throws ProductNotFoundException {
         return productService.updateProduct(id, productRequestDTO);
     }
 
     @DeleteMapping("/{id}")
-    public void delete(@PathVariable("id") UUID id) throws ProductNotFoundException {
+    public void delete(@PathVariable("id") Long id) throws ProductNotFoundException {
         productService.deleteProduct(id);
     }
 

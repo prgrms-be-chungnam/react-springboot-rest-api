@@ -8,7 +8,7 @@ import java.util.*;
 
 public class ProductMapRepository implements ProductRepository {
 
-    private final Map<UUID, Product> db = new HashMap<>();
+    private final Map<Long, Product> db = new HashMap<>();
 
     @Override
     public Product insert(Product product) {

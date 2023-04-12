@@ -18,12 +18,10 @@ import java.util.UUID;
 @AllArgsConstructor
 public class Product {
 
-
     @Id
-    @GeneratedValue(generator = "uuid2")
-    @GenericGenerator(name = "uuid2", strategy = "uuid2")
-    @Column(name = "id", nullable = false, unique = true, columnDefinition = "BINARY(16)")
-    private UUID id;
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "id", nullable = false, unique = true)
+    private Long id;
 
     @Column(name = "product_name", nullable = false, length = 30)
     private String productName;
@@ -54,6 +52,4 @@ public class Product {
         this.registeredDate = LocalDateTime.now().truncatedTo(ChronoUnit.MILLIS);
         this.lastUpdatedDate = LocalDateTime.now().truncatedTo(ChronoUnit.MILLIS);
     }
-
-
 }

@@ -1,7 +1,6 @@
 package com.cnu.coffee.Order;
 
 import com.cnu.coffee.Dto.OrderDto;
-import com.cnu.coffee.entity.Order;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -17,12 +16,12 @@ public class OrderController {
     private OrderService service;
 
     @PostMapping("/new-order")
-    public Order setOrder(@RequestBody OrderDto orderDto){
+    public OrderDto setOrder(@RequestBody OrderDto orderDto){
         return service.setOrder(orderDto);
     }
 
     @GetMapping("/orders")
-    public List<Order> getOrders(){
+    public List<OrderDto> getOrders(){
         return service.getOrders();
     }
 }

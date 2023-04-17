@@ -21,20 +21,19 @@ public class OrderService {
     @Autowired
     EntityConverter entityConverter;
 
-    public Order setOrder(OrderDto orderDto) {
+    public OrderDto setOrder(OrderDto orderDto) {
         Order order = entityConverter.dtoToOrder(orderDto);
         Date now = new Date(System.currentTimeMillis());
         order.setOrderStatus(OrderStatus.ACCEPTED);
         order.setCreatedDate(now);
         order.setUpdatedDate(now);
+        order.getOrderItems().forEach(orderItem -> orderItem.setOrder(order));
         Order save = repository.save(order);
         orderItemRepository.saveAll(order.getOrderItems());
-        return save;
+        return entityConverter.orderToDto(save);
     }
 
-    public List<Order> getOrders() {
-        return repository.findAll();
+    public List<OrderDto> getOrders() {
+        return repository.findAll().stream().map(i -> entityConverter.orderToDto(i)).toList();
     }
-
-
 }

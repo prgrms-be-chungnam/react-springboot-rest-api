@@ -1,17 +1,16 @@
 package com.cnu.coffee.Dto;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import java.util.List;
 
 @Getter
 @Setter
+@Builder
 @AllArgsConstructor
 @NoArgsConstructor
 public class OrderDto {
+    private long id;
     private String email;
     private String address;
     private String postcode;

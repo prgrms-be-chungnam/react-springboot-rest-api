@@ -18,19 +18,20 @@ public class ProductService {
     @Autowired
     EntityConverter entityConverter;
 
-    public Product setProduct(ProductDto productDto) {
+    public ProductDto setProduct(ProductDto productDto) {
         Product product = entityConverter.dtoToProduct(productDto);
         Date now = new Date(System.currentTimeMillis());
         product.setCreatedDate(now);
         product.setUpdatedDate(now);
-        return repository.save(product);
+        return entityConverter.productToDto(repository.save(product));
     }
 
-    public List<Product> getProducts() {
-        return repository.findAll();
+    public List<ProductDto> getProducts() {
+        return repository.findAll().stream().map(i -> entityConverter.productToDto(i)).toList();
     }
 
-    public List<Product> searchProducts(String input) {
-        return repository.findProductsByNameContainingOrDescriptionContaining(input, input);
+    public List<ProductDto> searchProducts(String input) {
+        return repository.findProductsByNameContainingOrDescriptionContaining(input, input)
+                .stream().map(i -> entityConverter.productToDto(i)).toList();
     }
 }

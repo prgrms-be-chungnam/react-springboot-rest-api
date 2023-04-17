@@ -1,5 +1,6 @@
 package com.cnu.coffee.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -14,13 +15,18 @@ public class OrderItem {
     @Column(name = "id")
     private long id;
 
+    @JsonIgnore
     @ManyToOne(targetEntity = Order.class)
     @JoinColumn(name = "order_id", referencedColumnName = "id")
     private Order order;
 
-    @Column(name = "product_id")
-    private long productId;
+    @ManyToOne(targetEntity = Product.class)
+    @JoinColumn(name = "product_id", referencedColumnName = "id")
+    private Product product;
 
     @Column(name = "quantity")
     private int quantity;
+
+    @Column(name = "price")
+    private int price;
 }

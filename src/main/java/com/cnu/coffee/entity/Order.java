@@ -8,7 +8,7 @@ import java.sql.Date;
 import java.util.List;
 
 @Entity
-@Table(name = "order")
+@Table(name = "orders")
 @Getter
 @Setter
 public class Order {
@@ -25,6 +25,9 @@ public class Order {
 
     @Column(name = "postcode")
     private String postcode;
+
+    @Column(name = "order_status")
+    private OrderStatus orderStatus;
 
     @OneToMany(mappedBy = "order")
     private List<OrderItem> orderItems;

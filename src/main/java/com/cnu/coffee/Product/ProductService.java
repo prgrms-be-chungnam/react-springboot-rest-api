@@ -34,4 +34,8 @@ public class ProductService {
         return repository.findProductsByNameContainingOrDescriptionContaining(input, input)
                 .stream().map(i -> entityConverter.productToDto(i)).toList();
     }
+
+    public void deleteProduct(long productId) {
+        repository.deleteById(productId);
+    }
 }

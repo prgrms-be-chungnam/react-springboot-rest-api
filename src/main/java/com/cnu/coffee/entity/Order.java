@@ -29,7 +29,7 @@ public class Order {
     @Column(name = "order_status")
     private OrderStatus orderStatus;
 
-    @OneToMany(mappedBy = "order")
+    @OneToMany(mappedBy = "order", cascade = CascadeType.ALL)
     private List<OrderItem> orderItems;
 
     @Column(name = "created_date")

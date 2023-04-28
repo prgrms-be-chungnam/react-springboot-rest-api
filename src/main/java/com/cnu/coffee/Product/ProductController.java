@@ -22,6 +22,11 @@ public class ProductController {
         return service.getProducts();
     }
 
+    @RequestMapping(value = "/delete-product", method = RequestMethod.DELETE)
+    public void deleteProduct(@RequestParam("id") long productId){
+        service.deleteProduct(productId);
+    }
+
     @GetMapping("/search")
     public List<ProductDto> searchProducts(@RequestParam String input) {
         return service.searchProducts(input);

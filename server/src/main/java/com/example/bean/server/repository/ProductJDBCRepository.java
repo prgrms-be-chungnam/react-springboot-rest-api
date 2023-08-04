@@ -33,7 +33,7 @@ import org.springframework.util.FileCopyUtils;
  * interface that interacts with a database using JDBC. It provides methods to perform CRUD (Create,
  * Read, Update, Delete) operations on product entities in the database.
  *
- * @version 1.0
+ * @version 1.1
  * @since 2023-08-04
  */
 @Repository
@@ -203,6 +203,14 @@ public class ProductJDBCRepository implements ProductRepository {
   }
 
   @Override
+  public void deleteByID(UUID productID) {
+    namedJDBCTemplate.update(
+        "DELETE FROM PRODUCTS WHERE PRODUCT_ID = UNHEX(REPLACE(:productID, '-', ''))",
+        Collections.singletonMap("productID", productID.toString().getBytes()));
+  }
+
+  @Override
   public void deleteAll() {
+    jdbcTemplate.update("TRUNCATE PRODUCTS");
   }
 }

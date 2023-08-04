@@ -11,7 +11,7 @@ import java.util.UUID;
  * data in the database. Implementations of this interface provide the necessary operations to
  * perform CRUD (Create, Read, Update, Delete) operations on product entities.
  *
- * @version 1.0
+ * @version 1.1
  * @since 2023-08-04
  */
 public interface ProductRepository {
@@ -62,6 +62,13 @@ public interface ProductRepository {
    * @return A list of products belonging to the specified category.
    */
   List<Product> findByCategory(Category category);
+
+  /**
+   * Deletes a product from the database based on its unique identifier (product ID).
+   *
+   * @param productID The unique identifier of the product to delete.
+   */
+  void deleteByID(UUID productID);
 
   /**
    * Deletes all products from the database. Use with caution as it removes all product data.

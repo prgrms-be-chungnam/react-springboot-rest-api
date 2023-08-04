@@ -27,6 +27,26 @@
 - Framework: Spring Boot
 - Database: MariaDB
 
+##### Dependencies
+
+- Apache Commons DbUtils
+- MariaDB Java Client
+- Project Lombok
+- Spring Boot Starter JDBC
+- Spring Boot Starter Web
+
 #### Client
 
 - Library: React
+
+### 환경 변수
+
+#### Server
+
+- 데이터베이스 설정
+  - [`.env.properties`](server/src/main/resources/.env.properties) 파일을 `env.properties`로 복사한 한 뒤, 다음과 같이 파일을 수정합니다.
+    ```properties
+    DB_DATABASE = [MariaDB 서버 IP]:[포트]/[데이터베이스]
+    DB_USER     = [MariaDB 사용자]
+    DB_PASSWORD = [MariaDB 비밀번호]
+    ```

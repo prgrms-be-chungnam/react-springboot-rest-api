@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1" name="viewport">
+  <title>Grids & Circles</title>
+  <link href="/webjars/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="container-fluid">
+<h1>Grids & Circles</h1>
+<h2>Production Management</h2>
+<form method="post" th:action="@{/products}">
+  <div class="mb-3">
+    <label class="form-label" for="name">Name</label>
+    <input class="form-control" id="name" name="name" type="text">
+  </div>
+  <div class="mb-3">
+    <label class="form-label" for="category">Category</label>
+    <select class="form-select" id="category" name="category">
+      <option selected value="COFFEE_BEAN_PACKAGE">COFFEE BEAN PACKAGE</option>
+    </select>
+  </div>
+  <div class="mb-3">
+    <label class="form-label" for="price">Price</label>
+    <input class="form-control" id="price" name="price" type="number">
+  </div>
+  <div class="mb-3">
+    <label class="form-label" for="description">Description</label>
+    <textarea class="form-control" id="description" name="description" rows="3"></textarea>
+  </div>
+  <button class="btn btn-primary" type="submit">Submit</button>
+</form>
+<script src="/webjars/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

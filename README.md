@@ -24,15 +24,17 @@
 
 #### Server
 
-- Framework: Spring Boot
-- Database: MariaDB
+- Framework: Spring Boot 3.1.2
+- Database: MariaDB 10.6
 
 ##### Dependencies
 
 - Apache Commons DbUtils
+- Bootstrap (WebJar)
 - MariaDB Java Client
 - Project Lombok
 - Spring Boot Starter JDBC
+- Spring Boot Starter Thymeleaf
 - Spring Boot Starter Web
 
 #### Client

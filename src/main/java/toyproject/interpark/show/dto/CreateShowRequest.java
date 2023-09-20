@@ -1,4 +1,4 @@
-package toyproject.interpark.show;
+package toyproject.interpark.show.dto;
 
 import lombok.Getter;
 import lombok.Setter;

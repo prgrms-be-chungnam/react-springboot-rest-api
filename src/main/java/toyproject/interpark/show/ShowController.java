@@ -1,7 +1,9 @@
 package toyproject.interpark.show;
 
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import toyproject.interpark.show.dto.CreateShowRequest;
 
 @RestController
 @RequestMapping("/api")
@@ -12,37 +14,37 @@ public class ShowController {
 
     // 공연 등록
     @PostMapping("/shows")
-    public Show createShow() {
-        showService.createShow();
-        return ____;
+    public ResponseEntity<Show> createShow(@RequestBody CreateShowRequest showRequest) {
+        showService.createShow(showRequest);
+        return null;
     }
 
     // 공연 전체 조회
     @GetMapping("/shows")
-    public Show getShows() {
+    public ResponseEntity<Show> getShows() {
         showService.getShows();
-        return;
+        return null;
     }
 
     // 공연 개별 조회
     @GetMapping("/shows/{id}")
-    public Show getShowById(@PathVariable int show_id) {
-        showService.getShowById();
-        return;
+    public ResponseEntity<Show> getShowById(@PathVariable int show_id) {
+        showService.getShowById(show_id);
+        return null;
     }
 
     // 공연 정보 수정
-    @PostMapping("/shows/{id}")
-    public Show updateShow(@PathVariable int show_id) {
+    @PatchMapping("/shows/{id}")
+    public ResponseEntity<Show> updateShow(@PathVariable int show_id) {
         showService.updateShow();
-        return;
+        return null;
     }
 
     // 공연 삭제
     @DeleteMapping("/shows/{id}")
-    public Show deleteShow(@PathVariable int show_id) {
+    public ResponseEntity<Show> deleteShow(@PathVariable int show_id) {
         showService.deleteShow();
-        return;
+        return null;
     }
 
 

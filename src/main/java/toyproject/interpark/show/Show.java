@@ -4,7 +4,6 @@ import jakarta.persistence.*;
 import jakarta.persistence.Table;
 import lombok.*;
 
-
 @Entity
 @Table(name = "show")
 @Builder

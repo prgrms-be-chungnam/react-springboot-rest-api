@@ -34,7 +34,7 @@
 
 ### B. DB 설계
 
-![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/c6445e5b-b632-412b-9e79-28466d8c6acc/ae7bcf50-4975-4e2e-b900-a9e56dbf15e1/Untitled.png)
+![readme_db](./readme_db.png)
 
 ### C. 클래스 다이어그램
 

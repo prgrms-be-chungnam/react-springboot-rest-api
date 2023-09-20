@@ -22,7 +22,15 @@
 
 ### A. REST API
 
-[제목 없는 데이터베이스](https://www.notion.so/eed89937a99145ab99a54a7e08300593?pvs=21)
+| Name      | Method | API Path        |
+| --------- | ----   | ----------------|
+| 회원 가입 | POST | /api/users/signup |
+| 로그인    | POST | /api/users/signin |
+|/          |      |                   |
+| 공연 등록 | POST | /api/shows        |
+| 공연 조회 | GET  | /api/shows/{id}   |
+|/          |      |                   |
+| 예매      | POST | /api/book         |
 
 ### B. DB 설계
 

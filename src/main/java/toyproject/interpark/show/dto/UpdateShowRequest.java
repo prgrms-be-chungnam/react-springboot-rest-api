@@ -6,7 +6,7 @@ import lombok.Setter;
 
 @Getter
 @AllArgsConstructor
-public class CreateShowRequest {
+public class UpdateShowRequest {
     private String showName;
     private String showDate;
     private int showPrice;

@@ -1,8 +1,10 @@
 package toyproject.interpark.show;
 
+import jakarta.persistence.EntityNotFoundException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import toyproject.interpark.show.dto.CreateShowRequest;
+import toyproject.interpark.show.dto.UpdateShowRequest;
 
 import java.util.List;
 import java.util.Optional;
@@ -30,20 +32,32 @@ public class ShowService {
     }
 
     // 공연 개별 조회
-    public Optional<Show> getShowById(int show_id) {
-        return showRepository.findById(show_id);
+    public Optional<Show> getShowById(int showId) {
+        return showRepository.findById(showId);
     }
 
     // 공연 정보 수정
-    public Show updateShow() {
+    public Show updateShow(int showId, UpdateShowRequest showRequest) {
+        Optional<Show> optionalShow = showRepository.findById(showId);
 
-        return null;
+        if (optionalShow.isPresent()) {
+            Show existingShow = optionalShow.get();
+
+            existingShow.setShowName(showRequest.getShowName());
+            existingShow.setShowDate(showRequest.getShowDate());
+            existingShow.setShowPrice(showRequest.getShowPrice());
+            existingShow.setTheaterID(showRequest.getTheaterId());
+            existingShow.setShowPoster(showRequest.getShowPoster());
+
+            return showRepository.save(existingShow);
+        } else {
+            throw new EntityNotFoundException();
+        }
     }
 
     // 공연 삭제
-    public Show deleteShow() {
-
-        return null;
+    public void deleteShow(int showId) {
+        showRepository.deleteById(showId);
     }
 
 }

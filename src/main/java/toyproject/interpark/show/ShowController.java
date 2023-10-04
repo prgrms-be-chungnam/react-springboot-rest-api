@@ -4,6 +4,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import toyproject.interpark.show.dto.CreateShowRequest;
+import toyproject.interpark.show.dto.UpdateShowRequest;
 
 @RestController
 @RequestMapping("/api")
@@ -28,22 +29,22 @@ public class ShowController {
 
     // 공연 개별 조회
     @GetMapping("/shows/{id}")
-    public ResponseEntity<Show> getShowById(@PathVariable int show_id) {
-        showService.getShowById(show_id);
+    public ResponseEntity<Show> getShowById(@PathVariable int showId) {
+        showService.getShowById(showId);
         return null;
     }
 
     // 공연 정보 수정
     @PatchMapping("/shows/{id}")
-    public ResponseEntity<Show> updateShow(@PathVariable int show_id) {
-        showService.updateShow();
+    public ResponseEntity<Show> updateShow(@PathVariable int showId, @RequestBody UpdateShowRequest showRequest) {
+        showService.updateShow(showId, showRequest);
         return null;
     }
 
     // 공연 삭제
     @DeleteMapping("/shows/{id}")
-    public ResponseEntity<Show> deleteShow(@PathVariable int show_id) {
-        showService.deleteShow();
+    public ResponseEntity<Show> deleteShow(@PathVariable int showId) {
+        showService.deleteShow(showId);
         return null;
     }
 

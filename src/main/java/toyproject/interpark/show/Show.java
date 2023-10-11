@@ -4,6 +4,9 @@ import jakarta.persistence.*;
 import jakarta.persistence.Table;
 import lombok.*;
 
+import java.sql.Date;
+
+
 @Entity
 @Table(name = "show")
 @Builder
@@ -22,7 +25,7 @@ public class Show {
 
     // 날짜 형식이어야 함
     @Column(name = "show_date")
-    private String showDate;
+    private Date showDate;
 
     @Column(name = "show_price")
     private int showPrice;

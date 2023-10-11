@@ -22,8 +22,8 @@ public class ShowController {
 
     // 공연 전체 조회
     @GetMapping("/shows")
-    public ResponseEntity<Show> getShows() {
-        showService.getShows();
+    public ResponseEntity<Show> getAllShows() {
+        showService.getAllShows();
         return null;
     }
 

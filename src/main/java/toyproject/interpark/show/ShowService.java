@@ -27,7 +27,7 @@ public class ShowService {
     }
 
     // 공연 전체 조회
-    public List<Show> getShows() {
+    public List<Show> getAllShows() {
         return showRepository.findAll();
     }
 

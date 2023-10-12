@@ -16,18 +16,19 @@ public class ShowService {
     private final ShowRepository showRepository;
 
     // 공연 등록
-    public Show createShow(CreateShowRequest showRequest) {
+    public int createShow(CreateShowRequest showRequest) {
         Show newShow = new Show();
         newShow.setShowName(showRequest.getShowName());
         newShow.setShowDate(showRequest.getShowDate());
         newShow.setShowPrice(showRequest.getShowPrice());
-        newShow.setTheaterID(showRequest.getTheaterId());
+        newShow.setTheaterId(showRequest.getTheaterId());
         newShow.setShowPoster(showRequest.getShowPoster());
-        return showRepository.save(newShow);
+        return showRepository.save(newShow).getShowId();
     }
 
     // 공연 전체 조회
     public List<Show> getAllShows() {
+        System.out.println(showRepository.findAll().get(0));
         return showRepository.findAll();
     }
 
@@ -44,9 +45,9 @@ public class ShowService {
             Show existingShow = optionalShow.get();
 
             existingShow.setShowName(showRequest.getShowName());
-            existingShow.setShowDate(showRequest.getShowDate());
+            existingShow.setShowDate(showRequest.getShowDate()); // show를 date 형식으로 바꿔서 그런 것 같음
             existingShow.setShowPrice(showRequest.getShowPrice());
-            existingShow.setTheaterID(showRequest.getTheaterId());
+            existingShow.setTheaterId(showRequest.getTheaterId());
             existingShow.setShowPoster(showRequest.getShowPoster());
 
             return showRepository.save(existingShow);

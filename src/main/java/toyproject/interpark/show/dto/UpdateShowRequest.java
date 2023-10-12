@@ -1,11 +1,11 @@
 package toyproject.interpark.show.dto;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
 @Getter
 @AllArgsConstructor
+@NoArgsConstructor
+@Builder
 public class UpdateShowRequest {
     private String showName;
     private String showDate;

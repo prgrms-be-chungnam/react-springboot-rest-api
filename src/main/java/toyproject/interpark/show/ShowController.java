@@ -6,6 +6,12 @@ import org.springframework.web.bind.annotation.*;
 import toyproject.interpark.show.dto.CreateShowRequest;
 import toyproject.interpark.show.dto.UpdateShowRequest;
 
+import java.net.URI;
+import java.util.List;
+import java.util.Optional;
+
+import static org.springframework.web.util.UriComponentsBuilder.fromPath;
+
 @RestController
 @RequestMapping("/api")
 @RequiredArgsConstructor
@@ -16,36 +22,39 @@ public class ShowController {
     // 공연 등록
     @PostMapping("/shows")
     public ResponseEntity<Show> createShow(@RequestBody CreateShowRequest showRequest) {
-        showService.createShow(showRequest);
-        return null;
+        int showId = showService.createShow(showRequest);
+        URI uri = fromPath("/api/shows/{id}")
+                .buildAndExpand(showId)
+                .toUri();
+        return ResponseEntity.created(uri).build();
     }
 
     // 공연 전체 조회
     @GetMapping("/shows")
-    public ResponseEntity<Show> getAllShows() {
-        showService.getAllShows();
-        return null;
+    public ResponseEntity<List<Show>> getAllShows() {
+        List<Show> showList = showService.getAllShows();
+        return ResponseEntity.ok(showList);
     }
 
     // 공연 개별 조회
     @GetMapping("/shows/{id}")
-    public ResponseEntity<Show> getShowById(@PathVariable int showId) {
-        showService.getShowById(showId);
-        return null;
+    public ResponseEntity<Show> getShowById(@PathVariable int id) {
+        Optional<Show> getShow = showService.getShowById(id);
+        return getShow.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
     }
 
     // 공연 정보 수정
     @PatchMapping("/shows/{id}")
-    public ResponseEntity<Show> updateShow(@PathVariable int showId, @RequestBody UpdateShowRequest showRequest) {
-        showService.updateShow(showId, showRequest);
-        return null;
+    public ResponseEntity<Show> updateShow(@PathVariable int id, @RequestBody UpdateShowRequest showRequest) {
+        Show updateShow = showService.updateShow(id, showRequest);
+        return ResponseEntity.ok(updateShow);
     }
 
     // 공연 삭제
     @DeleteMapping("/shows/{id}")
-    public ResponseEntity<Show> deleteShow(@PathVariable int showId) {
-        showService.deleteShow(showId);
-        return null;
+    public ResponseEntity<String> deleteShow(@PathVariable int id) {
+        showService.deleteShow(id);
+        return ResponseEntity.ok("공연이 제거되었습니다.");
     }
 
 

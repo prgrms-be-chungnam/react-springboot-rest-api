@@ -4,11 +4,9 @@ import jakarta.persistence.*;
 import jakarta.persistence.Table;
 import lombok.*;
 
-import java.sql.Date;
-
 
 @Entity
-@Table(name = "show")
+@Table(name = "`show`")
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
@@ -25,14 +23,14 @@ public class Show {
 
     // 날짜 형식이어야 함
     @Column(name = "show_date")
-    private Date showDate;
+    private String showDate;
 
     @Column(name = "show_price")
     private int showPrice;
 
     // theater FK 임
     @Column(name = "theater_id")
-    private int theaterID;
+    private int theaterId;
 
     // 사진임
     @Column(name = "show_poster")

@@ -28,5 +28,7 @@ public class User {
     @Column(name = "user_addr")
     private String userAddr;
 
+    @Column(name = "user_phone")
+    private String userPhone;
 
 }

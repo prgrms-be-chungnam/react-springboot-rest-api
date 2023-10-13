@@ -24,16 +24,19 @@ public class UserService {
     }
 
     // 로그인
-    public User signIn(SignInRequest request) {
+    public String signIn(SignInRequest request) {
         String signInId = request.getUserId();
         String signInPW = request.getUserPw();
 
         User user = userRepository.findByUserId(signInId);
         if (user != null && signInPW.equals(user.getUserPw())) {
-            return user;
+            return user.getUserName();
         }
         else if (user == null ) {
-            throw new RuntimeException("해당 아이디를 찾을 수 없습니다");
+            throw new RuntimeException("로그인 실패 : 해당 아이디 없음");
+        }
+        else if (!signInId.equals(user.getUserPw())) {
+            throw new RuntimeException("로그인 실패 : 비밀번호 불일치");
         }
         else {
              throw new RuntimeException("로그인 실패");

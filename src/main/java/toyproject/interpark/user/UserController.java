@@ -1,12 +1,8 @@
 package toyproject.interpark.user;
 
 import lombok.RequiredArgsConstructor;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import toyproject.interpark.user.dto.SignInRequest;
 import toyproject.interpark.user.dto.SignUpRequest;
 
@@ -19,16 +15,16 @@ public class UserController {
 
     // 회원 가입
     @PostMapping("users/sign_up")
-    public ResponseEntity<User> signUp(@RequestBody SignUpRequest request) {
+    public ResponseEntity<String> signUp(@RequestBody SignUpRequest request) {
         userService.signUp(request);
-        return new ResponseEntity<>(HttpStatus.OK);
+        return ResponseEntity.ok("가입이 완료되었습니다.");
     }
 
     // 로그인
-    @PostMapping("users/sing_in")
-    public ResponseEntity<User> signIn(SignInRequest request) {
-        User user = userService.signIn(request);
-        return new ResponseEntity<>(user, HttpStatus.OK);
+    @PostMapping("users/sign_in")
+    public ResponseEntity<String> signIn(@RequestBody SignInRequest request) {
+        String signInName = userService.signIn(request);
+        return ResponseEntity.ok(signInName + " 님 반갑습니다!");
     }
 
 

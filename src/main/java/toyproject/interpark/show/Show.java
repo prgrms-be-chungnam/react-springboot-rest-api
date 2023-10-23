@@ -4,8 +4,9 @@ import jakarta.persistence.*;
 import jakarta.persistence.Table;
 import lombok.*;
 
+
 @Entity
-@Table(name = "show")
+@Table(name = "`show`")
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
@@ -29,7 +30,7 @@ public class Show {
 
     // theater FK 임
     @Column(name = "theater_id")
-    private int theaterID;
+    private int theaterId;
 
     // 사진임
     @Column(name = "show_poster")

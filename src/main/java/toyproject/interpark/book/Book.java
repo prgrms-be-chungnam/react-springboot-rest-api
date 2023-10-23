@@ -24,12 +24,10 @@ public class Book {
     @Column(name = "book_date")
     private LocalDateTime bookDate;
 
-    @Column(name = "book_user")
-    @JoinColumn(name = "user_id")
+    @JoinColumn(name = "user_num")
     @ManyToOne
     private User bookUser;
 
-    @Column(name = "book_show")
     @JoinColumn(name = "show_id")
     @ManyToOne
     private Show bookShow;

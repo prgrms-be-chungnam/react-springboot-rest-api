@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.*;
 import toyproject.interpark.book.dto.CreateBookRequest;
 
 import java.net.URI;
+import java.util.List;
 
 import static org.springframework.web.util.UriComponentsBuilder.fromPath;
 
@@ -26,11 +27,11 @@ public class BookController {
         return ResponseEntity.created(uri).build();
     }
 
-    // 회원 별 예매한 공연 조회
+    // 회원 별 예매한 공연 리스트 조회 -> id는 회원번호
     @GetMapping("/{id}")
-    public ResponseEntity<Book> getAllBooksByUserId(@PathVariable int id) {
-
-        return null;
+    public ResponseEntity<List<GetAllBooksByUserNumProjection>> getAllBooksByUserNum(@PathVariable int id) {
+        List<GetAllBooksByUserNumProjection> getBooks = bookService.getAllBooksByUserNum(id);
+        return ResponseEntity.ok(getBooks);
     }
 
     // 예매 취소

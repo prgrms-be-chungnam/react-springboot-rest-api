@@ -2,7 +2,8 @@ package toyproject.interpark.book;
 
 import jakarta.persistence.*;
 import lombok.*;
-import org.springframework.data.annotation.CreatedDate;
+import toyproject.interpark.show.Show;
+import toyproject.interpark.user.User;
 
 import java.time.LocalDateTime;
 
@@ -23,10 +24,14 @@ public class Book {
     @Column(name = "book_date")
     private LocalDateTime bookDate;
 
-    @Column(name = "book_user_id")
-    private int bookUserId;
+    @Column(name = "book_user")
+    @JoinColumn(name = "user_id")
+    @ManyToOne
+    private User bookUser;
 
-    @Column(name = "book_show_id")
-    private int bookShowId;
+    @Column(name = "book_show")
+    @JoinColumn(name = "show_id")
+    @ManyToOne
+    private Show bookShow;
 
 }

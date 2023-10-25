@@ -1,0 +1,12 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" factoryName="Spring Boot"
+    name="LibraryApplication" nameIsGenerated="true" type="SpringBootApplicationConfigurationType">
+    <method v="2">
+      <option enabled="true" name="Make"/>
+    </method>
+    <module name="library.main"/>
+    <option name="SPRING_BOOT_MAIN_CLASS" value="com.null0xff.project.library.LibraryApplication"/>
+    <option name="UPDATE_ACTION_UPDATE_POLICY" value="UpdateClassesAndResources"/>
+    <option name="FRAME_DEACTIVATION_UPDATE_POLICY" value="UpdateClassesAndResources"/>
+  </configuration>
+</component>
